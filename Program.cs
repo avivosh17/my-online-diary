@@ -3,8 +3,9 @@
   static void Main()
   {
     int port = 5000;
-
+    
     var server = new Server(port);
+    
 
     Console.WriteLine("The server is running");
     Console.WriteLine($"Main Page: http://localhost:{port}/website/pages/index.html");
@@ -40,7 +41,7 @@
           Log.WriteException(exception);
         }
       }
-
+      
       response.Close();
     }
   }
