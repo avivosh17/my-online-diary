@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
-    body{
-    background-color: aqua;
-    }
-    #backlink{
+
+<head>
+    <style>
+        body {
+            background-color: bisque;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #backlink {
             font-style: italic;
             font-size: 40px;
         }
-        </style>
-    </head>
-    <body>
-        <a id="backlink" href="index.html">back</a>
-        <h1>log in</h1>
+    </style>
+</head>
 
-        <table>
-            <tr>
-                <td>username:</td>
-                <td><input type="text" id="usernameinput"></td>
-            </tr>
-            <tr>
-                <td>password:</td>
-                <td><input type="text" id="passwordinput"></td>
-            </tr>
-        </table>
+<body>
+    <a id="backlink" href="index.html">back</a>
+    <h1>log in</h1>
 
-        <br>
+    <table>
+        <tr>
+            <td>username:</td>
+            <td><input type="text" id="usernameinput"></td>
+        </tr>
+        <tr>
+            <td>password:</td>
+            <td><input type="text" id="passwordinput"></td>
+        </tr>
+    </table>
 
-        <button id="submitbutton">submit</button>
-        
-        <br>
-        
-        <div id="messagediv"></div>
-    </body>
+    <br>
+
+    <button id="submitbutton">submit</button>
+
+    <br>
+
+    <div id="messagediv"></div>
+</body>
+
 </html>

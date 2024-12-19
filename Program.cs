@@ -2,10 +2,13 @@
 {
   static void Main()
   {
+    string[] usernames = [];
+    string[] passwords = [];
+    string[] userids = [];
     int port = 5000;
-    
+
     var server = new Server(port);
-    
+
 
     Console.WriteLine("The server is running");
     Console.WriteLine($"Main Page: http://localhost:{port}/website/pages/index.html");
@@ -31,9 +34,18 @@
       {
         try
         {
-          /*──────────────────────────────────╮
-          │ Handle your custome requests here │
-          ╰──────────────────────────────────*/
+          if (request.Path == "signup")
+          {
+            (string username, string password) = request.GetBody<(string, string)>();
+
+            string userid = Guid.NewGuid().ToString();
+
+            usernames = [.. usernames, username];
+            passwords = [.. passwords, password];
+            userids = [.. userids, userid];
+
+            response.Send(userid);
+          }
           response.SetStatusCode(405);
         }
         catch (Exception exception)
@@ -41,7 +53,7 @@
           Log.WriteException(exception);
         }
       }
-      
+
       response.Close();
     }
   }
