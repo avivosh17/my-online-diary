@@ -46,6 +46,25 @@
 
             response.Send(userid);
           }
+          else if (request.Path == "login")
+          {
+            (string username, string password) = request.GetBody<(string, string)>();
+
+            string? userid = null;
+
+            Console.WriteLine(username + "+ " + password);
+
+            for (int i = 0; i < userids.Length; i++)
+            {
+              Console.WriteLine(usernames[i] + ", " + passwords[i]);
+              if (username == usernames[i] && password == passwords[i])
+              {
+                userid = userids[i];
+              }
+            }
+
+            response.Send(userid);
+          }
           response.SetStatusCode(405);
         }
         catch (Exception exception)
