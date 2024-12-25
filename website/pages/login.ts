@@ -11,7 +11,7 @@ submitbutton.onclick = async function () {
     if (userId != null) {
         localStorage.setItem("userId", userId);
 
-        location.href = "";
+        location.href = "index.html";
     }
     else {
         messagediv.innerText = "User does not exist.";
