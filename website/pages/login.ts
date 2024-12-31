@@ -17,3 +17,6 @@ submitbutton.onclick = async function () {
         messagediv.innerText = "User does not exist.";
     }
 }
+submitbutton.onclick = async function () {
+    
+}
