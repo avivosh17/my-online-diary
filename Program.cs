@@ -5,6 +5,8 @@
     string[] usernames = [];
     string[] passwords = [];
     string[] userids = [];
+    string[] rightpage = [];
+    string[] leftpage = [];
     int port = 5000;
 
     var server = new Server(port);
@@ -65,6 +67,41 @@
 
             response.Send(userid);
           }
+          else if (request.Path == "savediary")
+          {
+            (string diarypage2, string diarypage1, string userid) = request.GetBody<(string, string, string)>();
+            for (int i = 0; i < userids.Length; ++i)
+            {
+              if (userids[i] == userid)
+              {
+                rightpage[i] = diarypage2;
+                leftpage[i] = diarypage1;
+              }
+            }
+          }
+          else if (request.Path == "loaddiary")
+          {
+            string userid = request.GetBody<string>();
+            for (int i = 0; i < userids.Length; ++i)
+            {
+              if (userids[i] == userid)
+              {
+                response.Send(rightpage[i]);
+              }
+            }
+          }
+          else if (request.Path == "loaddiary2")
+          {
+            string userid = request.GetBody<string>();
+            for (int i = 0; i < userids.Length; ++i)
+            {
+              if (userids[i] == userid)
+              {
+                response.Send(leftpage[i]);
+              }
+            }
+          }
+
           response.SetStatusCode(405);
         }
         catch (Exception exception)
