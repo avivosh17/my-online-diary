@@ -163,7 +163,7 @@ public class Response
     _context = context;
   }
 
-  public void Send<T>(T value, string v)
+  public void Send<T>(T value)
   {
     if (value is File file)
     {
