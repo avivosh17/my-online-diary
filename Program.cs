@@ -1,4 +1,4 @@
-﻿  class User{
+﻿  /*class User{
     string username;
     string password;
     string firstpage;
@@ -14,7 +14,7 @@
     this.id = id;
 
   }
-  }
+  }*/
 class Program
 {
   static void Main()
@@ -22,9 +22,9 @@ class Program
     string[] usernames = [];
     string[] passwords = [];
     string[] userids = [];
-   /* string[] rightpage = [];
-    string[] leftpage = [];*/
-    string[] users =[];
+    string[] rightpage = [];
+    string[] leftpage = [];
+    /*string[] users =[];*/
     int port = 5000;
 
 
@@ -86,7 +86,7 @@ class Program
 
             response.Send(userid);
           }
-      /*  else if (request.Path == "savediary")
+        else if (request.Path == "savediary")
           {
             (string diarypage2, string diarypage1, string userid) = request.GetBody<(string, string, string)>();
             
@@ -120,7 +120,7 @@ class Program
                 response.Send(leftpage[i]);
               }
             }
-          }*/
+          }
 
           response.SetStatusCode(405);
         }
