@@ -121,7 +121,17 @@ class Program
               }
             }
           }
+          else if(request.Path == "getusername")
+          {
+            string userid = request.GetBody<string>();
 
+            int i = 0;
+            while (userids[i] != userid){
+              i++;
+            }
+            string username = userids[i];
+            response.Send(username);
+          }
           response.SetStatusCode(405);
         }
         catch (Exception exception)
